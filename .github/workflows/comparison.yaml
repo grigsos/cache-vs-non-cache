@@ -40,7 +40,6 @@ jobs:
         python -c "import jupyterlab; print(jupyterlab.__version__)"
         python -c "import pyarrow; print(pyarrow.__version__)"
         python -c "import great_expectations; print(great_expectations.__version__)"
-        python -c "import streamlit; print(streamlit.__version__)"
 
   build-slow:
     runs-on: ubuntu-latest
@@ -66,4 +65,3 @@ jobs:
         python -c "import jupyterlab; print(jupyterlab.__version__)"
         python -c "import pyarrow; print(pyarrow.__version__)"
         python -c "import great_expectations; print(great_expectations.__version__)"
-        python -c "import streamlit; print(streamlit.__version__)"
