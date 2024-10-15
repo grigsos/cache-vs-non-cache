@@ -31,6 +31,9 @@ jobs:
         # Install dependencies only if the cache did not restore all necessary packages
         python -c "import tensorflow, pandas, numpy, matplotlib, jupyterlab, pyarrow, great_expectations, streamlit" || pip install -r requirements.txt
 
+    - name: Clean pip cache
+      run: pip cache purge
+
     - name: Test installed packages 2
       run: |
         python -c "import tensorflow; print(tensorflow.__version__)"
