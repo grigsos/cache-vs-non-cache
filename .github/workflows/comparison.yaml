@@ -16,23 +16,13 @@ jobs:
         python-version: '3.11'
 
     - name: Cache full pip install
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
-        path: |
-          ~/.cache/pip
-          ~/.local/lib/python3.11/site-packages
-        key: ${{ runner.os }}-python3.11-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-python3.11-
+        path: ${{ env.pythonLocation }}
+        key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
 
     - name: Install dependencies
-      run: |
-        if [ -d ~/.local/lib/python3.11/site-packages ] && [ "$(ls -A ~/.local/lib/python3.11/site-packages)" ]; then
-          echo "Using cached dependencies"
-        else
-          mkdir -p ~/.local/lib/python3.11/site-packages
-          pip install -r requirements.txt --no-cache-dir
-        fi
+      run: pip install -r requirements.txt 
 
   build-slow:
     runs-on: ubuntu-latest
