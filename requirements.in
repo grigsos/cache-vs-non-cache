@@ -10,3 +10,9 @@ polars
 awswrangler
 boto3
 requests
+psycopg2-binary
+Office365-REST-Python-Client
+pyyaml
+bs4
+lxml
+SQLAlchemy
