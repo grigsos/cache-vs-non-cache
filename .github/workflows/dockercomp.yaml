@@ -1,0 +1,32 @@
+name: Python Caching Workflow Docker
+
+on: push
+
+jobs:
+  build-fast-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+    - name: Set up Docker CLI
+      uses: docker/setup-buildx-action@v3
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+  build-slow-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+        - name: Set up Docker CLI
+          uses: docker/setup-buildx-action@v3
+        - name: Build and push Docker images
+          uses: docker/build-push-action@v6
+          with:
+            context: .
