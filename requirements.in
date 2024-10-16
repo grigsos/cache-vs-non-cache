@@ -1,4 +1,3 @@
-# Some large libraries and frameworks
 tensorflow
 pandas
 numpy
@@ -7,3 +6,7 @@ jupyterlab
 pyarrow
 great_expectations
 streamlit
+polars
+awswrangler
+boto3
+requests
